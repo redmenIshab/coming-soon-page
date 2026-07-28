@@ -1017,12 +1017,15 @@ a {
 
 @media (max-width: 768px) {
     .hero {
-        padding-top: 11rem;
-        /* no stretched row here — on a narrow screen pinning the copy to the
-           bottom of the viewport just opens a void under the wordmark */
+        /* Sizing to content rather than the viewport. Holding 100svh here
+           left ~300px of slack that centring split into voids above and
+           below the copy; the seam showing underneath instead reads as an
+           invitation to scroll. */
+        min-height: auto;
+        padding-block: 12rem 5rem;
         grid-template-rows: auto auto auto auto;
-        align-content: center;
-        gap: 2.6rem;
+        align-content: start;
+        gap: 2.4rem;
     }
 
     .hero__title {
