@@ -48,6 +48,43 @@
         });
     }
 
+    /* ---------- hero spotlight ---------- */
+
+    // Only worth wiring up where there is a cursor to follow; touch devices
+    // fall back to the slightly brighter dim layer set in CSS.
+    var hero = document.querySelector('.hero');
+    var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+    if (hero && finePointer.matches) {
+        var spotX = 0;
+        var spotY = 0;
+        var spotTick = false;
+
+        var placeSpot = function () {
+            spotTick = false;
+            hero.style.setProperty('--spot-x', spotX + 'px');
+            hero.style.setProperty('--spot-y', spotY + 'px');
+        };
+
+        hero.addEventListener('pointermove', function (e) {
+            var box = hero.getBoundingClientRect();
+            spotX = e.clientX - box.left;
+            spotY = e.clientY - box.top;
+            if (!spotTick) {
+                spotTick = true;
+                requestAnimationFrame(placeSpot);
+            }
+        }, { passive: true });
+
+        hero.addEventListener('pointerenter', function () {
+            hero.classList.add('is-spotlit');
+        });
+
+        hero.addEventListener('pointerleave', function () {
+            hero.classList.remove('is-spotlit');
+        });
+    }
+
     /* ---------- scroll-spy ---------- */
 
     var links = Array.prototype.slice.call(document.querySelectorAll('.nav__link'));

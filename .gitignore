@@ -1,0 +1,7 @@
+.DS_Store
+
+# 14 MB camera original for the hero background. The site loads the
+# optimised derivative image/hero-bg.jpg (172 KB) instead, so the original
+# is kept out of the repo — it would otherwise be versioned forever and
+# shipped with every deploy. Delete this line if you want it tracked.
+image/bg.png

@@ -226,7 +226,9 @@ a {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 0;
+    /* above the hero (1) so the hero's background image cannot bury it,
+       below the other sections (3) so it still passes behind their cards */
+    z-index: 2;
     pointer-events: none;
 }
 
@@ -289,7 +291,7 @@ a {
 
 .seam {
     position: relative;
-    z-index: 1;
+    z-index: 3;
     padding: 2rem 0;
 }
 
@@ -423,23 +425,87 @@ a {
     grid-template-rows: auto 1fr auto;
     align-content: center;
     gap: clamp(2.5rem, 5vh, 5rem);
+
+    /* driven by the pointer; the defaults keep it sane before first move */
+    --spot-x: 50%;
+    --spot-y: 40%;
+    --spot-r: clamp(15rem, 22vw, 28rem);
 }
 
-/* copy on the left, photograph on the right — they share the row but
-   never the same space, so nothing is ever occluded */
-.hero__main {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: center;
-    gap: clamp(3rem, 6vw, 8rem);
+/* ---------- spotlight background ---------- */
+
+.hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.hero__bg-layer {
+    position: absolute;
+    inset: 0;
+    background: url(../image/hero-bg.jpg) no-repeat center 38% / cover;
+}
+
+.hero__bg-layer--dim {
+    opacity: .08;
+}
+
+/* A full-strength copy of the same photograph, revealed only inside a soft
+   circle that follows the cursor. Masking one layer is cheaper than
+   animating a filter, and the dim layer underneath means the image never
+   disappears entirely. */
+.hero__bg-layer--lit {
+    opacity: 0;
+    transition: opacity .45s var(--ease);
+    -webkit-mask-image: radial-gradient(circle var(--spot-r) at var(--spot-x) var(--spot-y),
+            #000 0%, rgba(0, 0, 0, .88) 38%, transparent 72%);
+    mask-image: radial-gradient(circle var(--spot-r) at var(--spot-x) var(--spot-y),
+            #000 0%, rgba(0, 0, 0, .88) 38%, transparent 72%);
+}
+
+.hero.is-spotlit .hero__bg-layer--lit {
+    opacity: 1;
+}
+
+/* no cursor to follow — show a little more of the image instead */
+@media (hover: none) {
+    .hero__bg-layer--dim {
+        opacity: .16;
+    }
+}
+
+/* ---------- copy ---------- */
+
+.hero__copy {
+    position: relative;
+    align-self: center;
+    /* bounded so the paper wash below stays local to the text instead of
+       spanning the hero and washing out the spotlight */
+    max-width: 68rem;
+}
+
+/* a paper wash that travels with the text, so the headline stays legible
+   when the spotlight passes behind it */
+.hero__copy::before {
+    content: '';
+    position: absolute;
+    inset: -6rem -8rem -4rem -6rem;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(ellipse 72% 62% at 30% 50%,
+            rgba(250, 247, 242, .94) 0%,
+            rgba(250, 247, 242, .78) 46%,
+            rgba(250, 247, 242, 0) 78%);
 }
 
 .hero__title {
     font-family: 'Fraunces', Georgia, serif;
     font-optical-sizing: auto;
     font-weight: 400;
-    font-size: clamp(4.2rem, 8.2vw, 10.5rem);
-    line-height: .9;
+    font-size: clamp(4.4rem, 10.5vw, 13.5rem);
+    line-height: .88;
     letter-spacing: -.035em;
 }
 
@@ -451,21 +517,6 @@ a {
     padding-left: 4%;
     font-style: italic;
     font-variation-settings: 'SOFT' 60, 'WONK' 1;
-}
-
-.hero__photo {
-    width: clamp(20rem, 28vw, 36rem);
-    aspect-ratio: 4 / 5;
-    border-radius: var(--arch);
-    overflow: hidden;
-    box-shadow: 0 3rem 6rem -2rem rgba(43, 35, 29, .35);
-}
-
-.hero__photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 62% 30%;
 }
 
 .hero__lede {
@@ -509,7 +560,7 @@ a {
 .reviews,
 .book {
     position: relative;
-    z-index: 1;
+    z-index: 3;
     padding: clamp(6rem, 10vw, 12rem) var(--gutter);
 }
 
@@ -849,7 +900,7 @@ a {
 
 .site-footer {
     position: relative;
-    z-index: 1;
+    z-index: 3;
     background: var(--paper-2);
     padding: clamp(5rem, 8vw, 9rem) var(--gutter) 3rem;
     border-top: 1px solid var(--line);
@@ -1031,14 +1082,9 @@ a {
         gap: 3rem;
     }
 
-    .hero__main {
-        grid-template-columns: 1fr;
-        justify-items: center;
-        gap: 3.5rem;
-    }
-
     .hero__copy {
         width: 100%;
+        max-width: none;
         text-align: center;
     }
 
@@ -1064,9 +1110,11 @@ a {
         justify-content: center;
     }
 
-    .hero__photo {
-        justify-self: center;
-        width: min(72vw, 30rem);
+    .hero__copy::before {
+        background: radial-gradient(ellipse 78% 58% at 50% 50%,
+                rgba(250, 247, 242, .94) 0%,
+                rgba(250, 247, 242, .78) 48%,
+                rgba(250, 247, 242, 0) 80%);
     }
 
     .hero__tags {
