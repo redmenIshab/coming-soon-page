@@ -24,14 +24,15 @@
 
     if (!wrap || !svg || !line || !sections.length || !footer) return;
 
-    // The thread lives in the left gutter, meandering between two fractions
-    // of the viewport width. Swinging it across the full page would drag the
-    // line diagonally through the content; staying in the gutter keeps it
-    // visible end to end and never on top of anything.
-    var LANE = {
-        desktop: { low: 0.028, high: 0.085 },
-        mobile: { low: 0.03, high: 0.075 }
-    };
+    // The thread lives in the gutter beside the content, meandering between
+    // two fractions of that gutter's width. Swinging it across the full page
+    // would drag the line diagonally through the copy; staying in the gutter
+    // keeps it visible end to end and never on top of anything.
+    //
+    // Measured from the section's own padding rather than the viewport, so it
+    // stays beside the content once the layout starts centring on wide screens.
+    var LANE_LOW = 0.2;
+    var LANE_HIGH = 0.78;
 
     var SAMPLES = 600;      // resolution of the y -> length lookup
     var EYE = 0.55;         // where "now" sits in the viewport (55% down)
@@ -97,7 +98,8 @@
     function build() {
         var w = document.documentElement.clientWidth;
         var docHeight = footer.offsetTop + footer.offsetHeight;
-        var lane = w <= 768 ? LANE.mobile : LANE.desktop;
+        var pad = parseFloat(window.getComputedStyle(sections[0]).paddingLeft) || w * 0.06;
+        var lane = { low: pad * LANE_LOW, high: pad * LANE_HIGH };
 
         svg.setAttribute('viewBox', '0 0 ' + w + ' ' + docHeight);
         svg.setAttribute('width', w);
@@ -141,12 +143,12 @@
         // alternate sides down the lane: dots land on the inner edge,
         // turning points on the outer one
         pts.forEach(function (p, i) {
-            p.x = (i % 2 === 0 ? lane.low : lane.high) * w;
+            p.x = i % 2 === 0 ? lane.low : lane.high;
         });
 
         // the tail settles onto the centre of the lane so the thread comes
         // to rest instead of hooking back on itself at the last turn
-        var mid = (lane.low + lane.high) / 2 * w;
+        var mid = (lane.low + lane.high) / 2;
         pts.forEach(function (p) {
             if (p.tail) p.x = mid;
         });

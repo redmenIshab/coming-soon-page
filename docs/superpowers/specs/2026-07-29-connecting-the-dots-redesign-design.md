@@ -55,19 +55,21 @@ hero photograph. Everything else uses a calm 12/20/32/pill scale.
 alternating bands would have painted over the thread and broken its continuity;
 hairlines also match the "fine curves and lines" brief more closely.
 
-**Hero.** No photograph in the layout. The hero's background is the cafe
-itself (`image/hero-bg.jpg`, a 172 KB derivative of a 14 MB camera original)
-laid down twice: a dim layer at 8% opacity, and a full-strength copy revealed
-only inside a soft circle that follows the cursor. Masking one layer is
-cheaper than animating a filter, and the dim layer underneath means the image
-never vanishes entirely. Touch devices get a slightly brighter dim layer and
-no spotlight. A paper wash bounded to the copy column keeps the headline
-legible when the spotlight passes behind it.
+**Hero.** Typographic, no photograph. The wordmark is sized to fill the
+content column exactly — `font-size` is the column width divided by the width
+of "Connecting" in ems — with line one flush left and line two flush right, so
+both lines touch an edge and the hero never leaves a dead half. The supporting
+row spans the same full width, lede left and buttons right.
 
-This forced a stacking change: the hero's full-bleed background would have
-buried the thread, so `.thread` moved to `z-index: 2` (above the hero at 1)
-while the remaining sections moved to 3, keeping the thread behind their cards
-as before.
+Because that sizing tracks the column, the layout caps at `--maxw: 1280px` via
+`padding-inline: max(gutter, (100% - maxw) / 2)`. Past that width the whole
+page centres with symmetric margins instead of trailing a gap on the right.
+The thread's lane is measured from a section's computed `padding-left` rather
+than viewport fractions, so it stays beside the content once centring kicks in.
+
+Two earlier hero directions were built and discarded: an arch-masked
+photograph overlapping the wordmark (cost legibility), and a cursor-lit
+background photograph (the source image was dropped).
 
 **Reviews.** Real Google reviews, attributed "via Google Reviews", with a link
 out to the Google Maps listing for verifiability.
