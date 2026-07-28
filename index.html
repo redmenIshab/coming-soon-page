@@ -1,288 +1,360 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Social Cafe in Itahari - The best cafe for coffee, remote work, co-working, youth hub, and community. Experience the best cafe in Itahari for entrepreneurs, artists, and coffee lovers.">
-    <meta name="keywords" content="cafe, social cafe, itahari, best cafe in itahari, remote work, co-working, coffee shop, youth hub, community, culture, meeting room, himalayan coffee, coworking space, artists, professionals, digital nomads, techpreneurs, leaders">
-    
-    <title>Social Cafe</title>
+    <meta name="description" content="Social Cafe, Itahari — coffee, co-working, meeting rooms and an open garden. A youth hub where entrepreneurs, artists and students connect the dots.">
+    <meta name="keywords" content="cafe, social cafe, itahari, best cafe in itahari, remote work, co-working, coffee shop, youth hub, community, culture, meeting room, himalayan coffee, coworking space">
+    <meta name="theme-color" content="#faf7f2">
 
-    <!-- SWIPER -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <title>Social Cafe — Connecting the Dots</title>
 
-    <!-- Font Awesome CDN Link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 
-    <!-- Custom CSS File Link  -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/png" href="image/logo-circle.png">
+    <link rel="icon" type="image/png" href="image/logo-mark.png">
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header class="header">
-        <div id="menu-btn" class="fas fa-bars"></div>
+    <!-- ICON SPRITE -->
+    <svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <g id="i-laptop"><path d="M5 6.5h14a1 1 0 0 1 1 1v8H4v-8a1 1 0 0 1 1-1Z"/><path d="M2.5 15.5h19l-1 2.5h-17l-1-2.5Z"/></g>
+            <g id="i-bolt"><path d="M13 3 6 13.2h4.6L9.4 21l7.2-10.2H12L13 3Z"/></g>
+            <g id="i-compass"><circle cx="12" cy="12" r="8.5"/><path d="m15.2 8.8-2 4.4-4.4 2 2-4.4 4.4-2Z"/></g>
+            <g id="i-case"><rect x="3" y="7.5" width="18" height="12" rx="2.5"/><path d="M9 7.5V6.2A2.2 2.2 0 0 1 11.2 4h1.6A2.2 2.2 0 0 1 15 6.2v1.3"/><path d="M3 12.6h18"/></g>
+            <g id="i-cup"><path d="M4.5 5h11.5v7.2a5.75 5.75 0 0 1-11.5 0V5Z"/><path d="M16 7.6h1.4a2.6 2.6 0 0 1 0 5.2H16"/><path d="M3.5 20.2h13.5"/></g>
+            <g id="i-palette"><path d="M12 3.6a8.4 8.4 0 0 0 0 16.8c1 0 1.7-.7 1.7-1.6 0-.9-.7-1.4-.7-2.2 0-.8.6-1.4 1.5-1.4h1.4a4.7 4.7 0 0 0 4.6-4.7c0-4-3.8-6.9-8.5-6.9Z"/><circle cx="8.1" cy="11.2" r=".9"/><circle cx="12" cy="8.2" r=".9"/><circle cx="15.9" cy="11.2" r=".9"/></g>
+            <g id="i-phone"><path d="M6.4 3.8h3l1.5 3.7-1.9 1.4a11.5 11.5 0 0 0 5.1 5.1l1.4-1.9 3.7 1.5v3a2 2 0 0 1-2.2 2A16.3 16.3 0 0 1 4.4 6a2 2 0 0 1 2-2.2Z"/></g>
+            <g id="i-mail"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="m3.8 7.4 7.1 5.2a2 2 0 0 0 2.2 0l7.1-5.2"/></g>
+            <g id="i-pin"><path d="M12 21s6.5-6 6.5-10.5a6.5 6.5 0 0 0-13 0C5.5 15 12 21 12 21Z"/><circle cx="12" cy="10.4" r="2.4"/></g>
+            <g id="i-fb"><path d="M14.6 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5H17.7V4.3A19 19 0 0 0 15.4 4c-2.3 0-3.9 1.4-3.9 4.1v2.3H8.9v3h2.6V21"/></g>
+            <g id="i-ig"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="16.9" cy="7.1" r=".9" fill="currentColor" stroke="none"/></g>
+            <g id="i-star"><path d="m12 3.6 2.6 5.4 5.9.8-4.3 4.1 1 5.9-5.2-2.8-5.2 2.8 1-5.9-4.3-4.1 5.9-.8L12 3.6Z"/></g>
+            <g id="i-quote"><path d="M9.6 6C6.5 7.6 4.8 10.3 4.8 13.6c0 2.7 1.6 4.4 3.7 4.4 1.9 0 3.3-1.4 3.3-3.2 0-1.8-1.2-3.1-2.9-3.1-.3 0-.7 0-.9.2.4-1.7 1.7-3.2 3.5-4.2L9.6 6Zm8.2 0c-3.1 1.6-4.8 4.3-4.8 7.6 0 2.7 1.6 4.4 3.7 4.4 1.9 0 3.3-1.4 3.3-3.2 0-1.8-1.2-3.1-2.9-3.1-.3 0-.7 0-.9.2.4-1.7 1.7-3.2 3.5-4.2L17.8 6Z"/></g>
+            <g id="i-menu"><path d="M4 7.5h16M4 12.5h16M4 17.5h16"/></g>
+            <g id="i-close"><path d="M6.2 6.2 17.8 17.8M17.8 6.2 6.2 17.8"/></g>
+            <g id="i-wa"><path d="M3.8 20.2 5 16.4a7.7 7.7 0 1 1 2.9 2.8l-4.1 1Z"/><path d="M9.1 8.4c.2-.5.4-.5.6-.5h.5c.2 0 .4 0 .6.5l.7 1.6c.1.2 0 .4-.1.5l-.5.6c-.1.2-.2.3 0 .6a6 6 0 0 0 2.5 2.2c.3.1.4 0 .5-.1l.6-.7c.2-.2.3-.1.5 0l1.5.8c.2.1.3.2.3.3a1.9 1.9 0 0 1-1.3 1.5c-.5.1-1.2.2-3.4-.9a8 8 0 0 1-3.1-3.4c-.5-1-.5-1.8-.4-2.2a2 2 0 0 1 .5-.8Z"/></g>
+            <g id="i-arrow"><path d="M4 12h15M13.2 6.2 19 12l-5.8 5.8"/></g>
+        </defs>
+    </svg>
 
-        <img src="image/logo-circle.png" height="80" width="80" alt="logo" >
-        <nav class="navbar">
-            <a href="#home">home</a>
-            <a href="#about">about</a>
-            <a href="#menu">menu</a>
-            <a href="#review">review</a>
+    <!-- THE THREAD -->
+    <div class="thread" aria-hidden="true">
+        <svg id="thread-svg" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <path id="thread-track" class="thread__track"></path>
+            <path id="thread-line" class="thread__line"></path>
+            <g id="thread-nodes"></g>
+        </svg>
+    </div>
+
+    <!-- HEADER -->
+    <header class="site-header" id="site-header">
+        <a class="brand" href="#home">
+            <img src="image/logo-mark.png" alt="" width="40" height="40">
+            <span class="brand__text">Social <em>Cafe</em></span>
+        </a>
+
+        <nav class="nav" id="nav">
+            <a href="#home" class="nav__link">Home</a>
+            <a href="#about" class="nav__link">About</a>
+            <a href="#ecosystem" class="nav__link">Ecosystem</a>
+            <a href="#reviews" class="nav__link">Reviews</a>
         </nav>
 
-        <a href="#book" class="btn">Book Meeting Room</a>
+        <a href="#book" class="btn btn--solid site-header__cta">Book a room</a>
+
+        <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+            <svg class="icon" viewBox="0 0 24 24"><use href="#i-menu"></use></svg>
+        </button>
     </header>
 
-    <!-- HOME -->
-    <section class="home" id="home">
-        <div class="row">
-            <div class="content">
-                <h3 style="color: #3aa76d;">Connecting the Dots</h3>
-                <h4> Coffee • Youth Hub • Community • Culture </h4>
-                <a href="#" class="btn">Visit Social Cafe</a>
+    <main>
+
+        <!-- HERO -->
+        <section class="hero" id="home" data-thread-node data-node-label="Home">
+            <p class="eyebrow" data-reveal>Itahari <i>·</i> Since 2016</p>
+
+            <div class="hero__main">
+                <div class="hero__copy">
+                    <h1 class="hero__title">
+                        <span class="hero__line hero__line--a" data-reveal>Connecting</span>
+                        <span class="hero__line hero__line--b" data-reveal>the Dots</span>
+                    </h1>
+
+                    <p class="hero__lede" data-reveal>
+                        A cafe, a co-working floor and an open garden in the middle of Itahari —
+                        where entrepreneurs, artists and students keep ending up at the same table.
+                    </p>
+
+                    <div class="hero__actions" data-reveal>
+                        <a href="https://www.google.com/maps/place/Social+Cafe+-+Connecting+the+Dots/@26.6647103,87.2738198,872m/data=!3m1!1e3!4m8!3m7!1s0x39ef6d716bd5e67d:0x90d4f93807860043!8m2!3d26.6647103!4d87.2763947!9m1!1b1!16s%2Fg%2F11xykl2djt"
+                            target="_blank" rel="noopener" class="btn btn--solid">Visit Social Cafe</a>
+                        <a href="#book" class="btn btn--ghost">Book a meeting room</a>
+                    </div>
+                </div>
+
+                <figure class="hero__photo" data-reveal>
+                    <img src="image/hero.jpg" alt="Live music night at Social Cafe, Itahari" width="860" height="573" fetchpriority="high">
+                </figure>
             </div>
 
-            <div class="image">
-                <img src="image/home-img-1.png" class="main-home-image" alt="">
-            </div>
+            <p class="hero__tags" data-reveal>
+                <span>Coffee</span><i>·</i><span>Youth Hub</span><i>·</i><span>Community</span><i>·</i><span>Culture</span>
+            </p>
+        </section>
+
+        <div class="seam seam--a" aria-hidden="true">
+            <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+                <path d="M0 42C240 6 480 78 720 42S1200 6 1440 30" vector-effect="non-scaling-stroke"/>
+                <path d="M0 50C240 14 480 86 720 50S1200 14 1440 38" vector-effect="non-scaling-stroke" class="seam__echo"/>
+            </svg>
         </div>
 
-        <div class="image-slider">
-            <img src="image/home-img-1.png" alt="">
-            <img src="image/home-img-2.png" alt="">
-            <img src="image/home-img-3.png" alt="">
-        </div>
-    </section>
+        <!-- ABOUT -->
+        <section class="about" id="about" data-thread-node data-node-label="About">
+            <p class="section-label" data-reveal>01 — Not just a cafe</p>
 
-    <!-- ABOUT -->
-    <section class="about" id="about">
-        <h1 class="heading">Not just a cafe </h1>
+            <div class="about__grid">
+                <h2 class="section-title" data-reveal>
+                    A room where<br>ideas find<br><em>each other</em>
+                </h2>
 
-        <div class="row">
-            <div class="image">
-                <img src="image/sc-dev.jpg" alt="">
-            </div>
-
-            <div class="content">
-                <h3 class="title">Be a Part of the Community</h3>
-                <p>Social Cafe is a hub for entrepreneurs, academics, youth, artists, and 
-                    emerging leaders — a space where startups, literature, art, new mindsets, and change can take root. 
-                    It's about bringing people, ideas, and perspectives together — connecting minds and connecting the dots. 
-                </p>
-                <a href="#" class="btn">read more</a>
-                <div class="icons-container">
-                    <div class="icons">
-                        <img src="image/about-icon-1.png" alt="">
-                        <h3>Himalayan Coffee</h3>
-                    </div>
-                    <div class="icons">
-                        <img src="image/about-icon-2.png" alt="">
-                        <h3>Co-working Space</h3>
-                    </div>
-                    <div class="icons">
-                        <img src="image/about-icon-3.png" alt="">
-                        <h3>Meeting Room</h3>
-                    </div>    
-                     <div class="icons">
-                        <img src="image/about-icon-3.png" alt="">
-                        <h3>Open Garden</h3>
-                    </div>
-                    <div class="icons">
-                        <img src="image/about-icon-1.png" alt="">
-                        <h3>Lobby and Cafe</h3>
-                    </div>
-                    <div class="icons">
-                        <img src="image/about-icon-1.png" alt="">
-                        <h3>Private Desk </h3>
-                    </div>
+                <div class="about__body">
+                    <p data-reveal>
+                        Social Cafe is a hub for entrepreneurs, academics, youth, artists and emerging
+                        leaders — a space where startups, literature, art, new mindsets and change take root.
+                    </p>
+                    <p data-reveal>
+                        It is about bringing people, ideas and perspectives together. Connecting minds,
+                        and connecting the dots.
+                    </p>
+                    <a href="#ecosystem" class="link-arrow" data-reveal>
+                        See who gathers here
+                        <svg class="icon" viewBox="0 0 24 24"><use href="#i-arrow"></use></svg>
+                    </a>
                 </div>
             </div>
+
+            <ul class="chips" data-reveal>
+                <li class="chip">Himalayan Coffee</li>
+                <li class="chip">Co-working Space</li>
+                <li class="chip">Meeting Room</li>
+                <li class="chip">Open Garden</li>
+                <li class="chip">Lobby &amp; Cafe</li>
+                <li class="chip">Private Desk</li>
+            </ul>
+        </section>
+
+        <div class="seam seam--b" aria-hidden="true">
+            <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+                <path d="M0 24C240 60 480 -6 720 24S1200 60 1440 36" vector-effect="non-scaling-stroke"/>
+                <path d="M0 32C240 68 480 2 720 32S1200 68 1440 44" vector-effect="non-scaling-stroke" class="seam__echo"/>
+            </svg>
         </div>
-    </section>
 
-    <!-- MENU -->
-    <section class="menu" id="menu">
-        <h1 class="heading">Ecosystem Created by </h1>
+        <!-- ECOSYSTEM -->
+        <section class="ecosystem" id="ecosystem" data-thread-node data-node-label="Ecosystem">
+            <p class="section-label" data-reveal>02 — The ecosystem</p>
+            <h2 class="section-title section-title--center" data-reveal>Who you'll <em>meet</em> here</h2>
 
-        <div class="box-container">
-            <a href="#" class="box">
-                <img src="image/menu-1.png" alt="">
-                <div class="content">
-                    <h3>Digital Nomads</h3>
-                    <p>Second Home for people who want to work remotely. We provide a co-working space with a private desk or work with people .</p>
-                </div>
-            </a>
-
-            <a href="#" class="box">
-                <img src="image/menu-2.png" alt="">
-                <div class="content">
-                    <h3> Techpreneurs</h3>
-                    <p>A vibrant hub for tech-driven entrepreneurs. We offer resources, networking, and a collaborative space to build, innovate, and grow your tech ventures.</p>
-                </div>
-            </a>
-
-            <a href="#" class="box">
-                <img src="image/menu-3.png" alt="">
-                <div class="content">
-                    <h3>Leaders</h3>
-                    <p>A space for visionaries to connect, inspire, and lead. We foster leadership through community, mentorship, and thought-provoking events.</p>
-                </div>
-            </a>
-
-            <a href="#" class="box">
-                <img src="image/menu-4.png" alt="">
-                <div class="content">
-                    <h3>Professionals</h3>
-                    <p>Designed for working professionals seeking focus and flexibility. Enjoy a productive environment with modern amenities and a like-minded community.</p>
-                </div>
-            </a>
-
-            <a href="#" class="box">
-                <img src="image/menu-5.png" alt="">
-                <div class="content">
-                    <h3>Coffee Lovers</h3>
-                    <p>A cozy corner for those who find inspiration over a great cup of coffee. Enjoy handcrafted brews in a warm, inviting atmosphere.</p>
-                </div>
-            </a>
-
-            <a href="#" class="box">
-                <img src="image/menu-6.png" alt="">
-                <div class="content">
-                    <h3>Artists</h3>
-                    <p>A creative sanctuary for artists to express, explore, and exhibit. We offer an inspiring space that fuels imagination and collaboration.</p>
-                </div>
-            </a>
-        </div>
-    </section>
-
-    <!-- REVIEW -->
-    <section class="review" id="review">
-        <h1 class="heading">reviews <span>what people says</span></h1>
-
-        <div class="swiper review-slider">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide box">
-                    <i class="fas fa-quote-left"></i>
-                    <i class="fas fa-quote-right"></i>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+            <div class="cards">
+                <article class="card" data-reveal>
+                    <div class="card__head">
+                        <span class="card__icon"><svg class="icon" viewBox="0 0 24 24"><use href="#i-laptop"></use></svg></span>
+                        <h3>Digital Nomads</h3>
                     </div>
-                    <p>Been coming here for a long time now. The place is so comfortable with a lovely ambience that you don't feel like leaving at all. Definitely a must visit cafe in the heart of the city!</p>
-                    <h3>Rishab Agrawal</h3>
-                    <span>via. FB review</span>
-                </div>
+                    <p>A second home for people working remotely — a private desk when you need focus, a shared table when you don't.</p>
+                </article>
 
-                <div class="swiper-slide box">
-                    <i class="fas fa-quote-left"></i>
-                    <i class="fas fa-quote-right"></i>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                <article class="card" data-reveal>
+                    <div class="card__head">
+                        <span class="card__icon"><svg class="icon" viewBox="0 0 24 24"><use href="#i-bolt"></use></svg></span>
+                        <h3>Techpreneurs</h3>
                     </div>
-                    <p>I loved loved loved the chicken sizzler!
-                        The first food I eat in Kathamndu that I can call "delicious"'
-                        The place is nicely decorated and the staff was friendly and smiling! 
-                        Definitely go for the food!</p>
-                    <h3>Cristina Podocea</h3>
-                    <span>via. FB review</span>
-                </div>
+                    <p>A hub for tech-driven founders. Resources, networking and a room to build, break and rebuild your venture in.</p>
+                </article>
 
-                <div class="swiper-slide box">
-                    <i class="fas fa-quote-left"></i>
-                    <i class="fas fa-quote-right"></i>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                <article class="card" data-reveal>
+                    <div class="card__head">
+                        <span class="card__icon"><svg class="icon" viewBox="0 0 24 24"><use href="#i-compass"></use></svg></span>
+                        <h3>Leaders</h3>
                     </div>
-                    <p>It's the lovely place i know, awesome ambience and lovely service people it's alawys our best place and will be..... love this place best in town.</p>
-                    <h3>Akash Bhaila</h3>
-                    <span>via. FB review</span>
-                </div>
+                    <p>Space for visionaries to connect and inspire. Leadership grown through community, mentorship and honest conversation.</p>
+                </article>
 
-                <div class="swiper-slide box">
-                    <i class="fas fa-quote-left"></i>
-                    <i class="fas fa-quote-right"></i>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                <article class="card" data-reveal>
+                    <div class="card__head">
+                        <span class="card__icon"><svg class="icon" viewBox="0 0 24 24"><use href="#i-case"></use></svg></span>
+                        <h3>Professionals</h3>
                     </div>
-                    <p>Loved it! A new creative space in town perfect for innovators and foodies.</p>
-                    <h3>Bibbi Abruzzini</h3>
-                    <span>via. FB review</span>
-                </div>
+                    <p>Built for people who need focus and flexibility — a productive room, modern amenities, like-minded company.</p>
+                </article>
+
+                <article class="card" data-reveal>
+                    <div class="card__head">
+                        <span class="card__icon"><svg class="icon" viewBox="0 0 24 24"><use href="#i-cup"></use></svg></span>
+                        <h3>Coffee Lovers</h3>
+                    </div>
+                    <p>A corner for anyone who finds their thinking over a good cup. Handcrafted Himalayan brews, unhurried.</p>
+                </article>
+
+                <article class="card" data-reveal>
+                    <div class="card__head">
+                        <span class="card__icon"><svg class="icon" viewBox="0 0 24 24"><use href="#i-palette"></use></svg></span>
+                        <h3>Artists</h3>
+                    </div>
+                    <p>A sanctuary to express, explore and exhibit — walls that hold work, evenings that hold an audience.</p>
+                </article>
             </div>
-            <div class="swiper-pagination"></div>
+        </section>
+
+        <div class="seam seam--a" aria-hidden="true">
+            <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+                <path d="M0 36C240 0 480 72 720 36S1200 0 1440 24" vector-effect="non-scaling-stroke"/>
+                <path d="M0 44C240 8 480 80 720 44S1200 8 1440 32" vector-effect="non-scaling-stroke" class="seam__echo"/>
+            </svg>
         </div>
-    </section>
 
-    <!-- BOOK -->
-    <section class="book" id="book">
-        <h1 class="heading">booking <span>Book Meeting Room</span></h1>
+        <!-- REVIEWS -->
+        <section class="reviews" id="reviews" data-thread-node data-node-label="Reviews">
+            <p class="section-label" data-reveal>03 — What people say</p>
+            <h2 class="section-title section-title--center" data-reveal>Regulars, mostly</h2>
 
-    <form action="https://formsubmit.co/socialcafenepal@gmail.com" method="POST">
-        <input type="text" name="name" placeholder="Name" class="box" required>
-        <input type="email" name="email" placeholder="Email" class="box" required>
-        <input type="number" name="phone" placeholder="Number" class="box" required>
-        <textarea name="message" placeholder="Message" class="box" id="" cols="30" rows="10" required></textarea>
-        <input type="submit" value="send message" class="btn">
-    </form>
+            <div class="reviews__viewport" id="reviews-track" tabindex="0" role="group" aria-label="Customer reviews, scrollable">
+                <article class="review">
+                    <svg class="review__quote icon" viewBox="0 0 24 24"><use href="#i-quote"></use></svg>
+                    <div class="stars" aria-label="5 out of 5 stars">
+                        <svg class="icon" viewBox="0 0 24 24"><use href="#i-star"></use></svg><svg class="icon" viewBox="0 0 24 24"><use href="#i-star"></use></svg><svg class="icon" viewBox="0 0 24 24"><use href="#i-star"></use></svg><svg class="icon" viewBox="0 0 24 24"><use href="#i-star"></use></svg><svg class="icon" viewBox="0 0 24 24"><use href="#i-star"></use></svg>
+                    </div>
+                    <p>Tranquility! Coming into this coffee shop feels like an instant escape from the rush of everyday humdrum world and hectic life.</p>
+                    <footer><strong>Kedar Karki</strong><span>via Google Reviews</span></footer>
+                </article>
+
+                <article class="review">
+                    <svg class="review__quote icon" viewBox="0 0 24 24"><use href="#i-quote"></use></svg>
+                    <div class="stars" aria-label="5 out of 5 stars">
+                        <svg class="icon" viewBox="0 0 24 24"><use href="#i-star"></use></svg><svg class="icon" viewBox="0 0 24 24"><use href="#i-star"></use></svg><svg class="icon" viewBox="0 0 24 24"><use href="#i-star"></use></svg><svg class="icon" viewBox="0 0 24 24"><use href="#i-star"></use></svg><svg class="icon" viewBox="0 0 24 24"><use href="#i-star"></use></svg>
+                    </div>
+                    <p>Social Cafe is honestly my favorite place to sit, relax, and get my work done. The environment is calm, cozy, and perfect for productivity. Their coffee is always on point — definitely some of the best in Itahari.</p>
+                    <footer><strong>Kapil Tamang</strong><span>via Google Reviews</span></footer>
+                </article>
+
+                <article class="review">
+                    <svg class="review__quote icon" viewBox="0 0 24 24"><use href="#i-quote"></use></svg>
+                    <div class="stars" aria-label="5 out of 5 stars">
+                        <svg class="icon" viewBox="0 0 24 24"><use href="#i-star"></use></svg><svg class="icon" viewBox="0 0 24 24"><use href="#i-star"></use></svg><svg class="icon" viewBox="0 0 24 24"><use href="#i-star"></use></svg><svg class="icon" viewBox="0 0 24 24"><use href="#i-star"></use></svg><svg class="icon" viewBox="0 0 24 24"><use href="#i-star"></use></svg>
+                    </div>
+                    <p>One of the best spots in Itahari to have great coffee and get your work done ❤️</p>
+                    <footer><strong>Arun</strong><span>via Google Reviews</span></footer>
+                </article>
+
+                <article class="review">
+                    <svg class="review__quote icon" viewBox="0 0 24 24"><use href="#i-quote"></use></svg>
+                    <div class="stars" aria-label="5 out of 5 stars">
+                        <svg class="icon" viewBox="0 0 24 24"><use href="#i-star"></use></svg><svg class="icon" viewBox="0 0 24 24"><use href="#i-star"></use></svg><svg class="icon" viewBox="0 0 24 24"><use href="#i-star"></use></svg><svg class="icon" viewBox="0 0 24 24"><use href="#i-star"></use></svg><svg class="icon" viewBox="0 0 24 24"><use href="#i-star"></use></svg>
+                    </div>
+                    <p>If you're hunting for a place to get work done or dive into study mode, Social Cafe is the best option. It is the perfect blend of productivity and comfort. Great coffee, comfy seating, and a welcoming atmosphere — highly recommended.</p>
+                    <footer><strong>Ankita Raut</strong><span>via Google Reviews</span></footer>
+                </article>
+            </div>
+
+            <div class="reviews__dots" id="reviews-dots" role="tablist" aria-label="Choose review"></div>
+
+            <p class="reviews__source" data-reveal>
+                <a href="https://www.google.com/maps/place/Social+Cafe+-+Connecting+the+Dots/@26.6647103,87.2738198,872m/data=!3m1!1e3!4m8!3m7!1s0x39ef6d716bd5e67d:0x90d4f93807860043!8m2!3d26.6647103!4d87.2763947!9m1!1b1!16s%2Fg%2F11xykl2djt" target="_blank" rel="noopener" class="link-arrow">
+                    Read every review on Google
+                    <svg class="icon" viewBox="0 0 24 24"><use href="#i-arrow"></use></svg>
+                </a>
+            </p>
+        </section>
+
+        <div class="seam seam--b" aria-hidden="true">
+            <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+                <path d="M0 28C240 64 480 -2 720 28S1200 64 1440 40" vector-effect="non-scaling-stroke"/>
+                <path d="M0 36C240 72 480 6 720 36S1200 72 1440 48" vector-effect="non-scaling-stroke" class="seam__echo"/>
+            </svg>
+        </div>
+
+        <!-- BOOK -->
+        <section class="book" id="book" data-thread-node data-node-label="Book">
+            <p class="section-label" data-reveal>04 — Reserve</p>
+
+            <div class="book__grid">
+                <div class="book__intro">
+                    <h2 class="section-title" data-reveal>Book the<br><em>meeting room</em></h2>
+                    <p data-reveal>Tell us when and how many. We'll hold the room, the coffee comes standard.</p>
+                    <ul class="book__contact" data-reveal>
+                        <li><svg class="icon" viewBox="0 0 24 24"><use href="#i-pin"></use></svg> <a href="https://www.google.com/maps/place/Social+Cafe+-+Connecting+the+Dots/@26.6647103,87.2738198,872m/data=!3m1!1e3!4m8!3m7!1s0x39ef6d716bd5e67d:0x90d4f93807860043!8m2!3d26.6647103!4d87.2763947!9m1!1b1!16s%2Fg%2F11xykl2djt" target="_blank" rel="noopener">Itahari, Sunsari, Nepal</a></li>
+                        <li><svg class="icon" viewBox="0 0 24 24"><use href="#i-phone"></use></svg> <a href="tel:+977975390930">+977 975390930</a></li>
+                        <li><svg class="icon" viewBox="0 0 24 24"><use href="#i-wa"></use></svg> <a href="https://wa.me/977975390930" target="_blank" rel="noopener">Message us on WhatsApp</a></li>
+                    </ul>
+                </div>
+
+                <form class="book__form" action="https://formsubmit.co/socialcafenepal@gmail.com" method="POST" data-reveal>
+                    <div class="field">
+                        <input type="text" id="f-name" name="name" placeholder=" " required>
+                        <label for="f-name">Your name</label>
+                    </div>
+                    <div class="field">
+                        <input type="email" id="f-email" name="email" placeholder=" " required>
+                        <label for="f-email">Email</label>
+                    </div>
+                    <div class="field">
+                        <input type="tel" id="f-phone" name="phone" placeholder=" " required>
+                        <label for="f-phone">Phone</label>
+                    </div>
+                    <div class="field">
+                        <textarea id="f-msg" name="message" rows="4" placeholder=" " required></textarea>
+                        <label for="f-msg">When, and how many people?</label>
+                    </div>
+                    <button type="submit" class="btn btn--solid btn--full">Send request</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
 
     <!-- FOOTER -->
-    <section class="footer">
-        <div class="box-container">
+    <footer class="site-footer" id="footer-end">
+        <div class="site-footer__top">
+            <a class="brand brand--footer" href="#home">
+                <img src="image/logo-mark.png" alt="" width="48" height="48">
+                <span class="brand__text">Social <em>Cafe</em></span>
+            </a>
+            <p class="site-footer__tagline">Connecting the Dots<br>since 2016.</p>
+        </div>
 
-            <div class="box">
-                <h3>contact info</h3>
-                <a href="#"><i class="fas fa-phone"></i> +977-9860251012</a>
-                <a href="#"><i class="fas fa-envelope"></i> socialcafenepal@gmail.com</a>
+        <div class="site-footer__cols">
+            <div class="site-footer__col">
+                <h3>Contact</h3>
+                <a href="tel:+977975390930"><svg class="icon" viewBox="0 0 24 24"><use href="#i-phone"></use></svg> +977 975390930</a>
+                <a href="https://wa.me/977975390930" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><use href="#i-wa"></use></svg> WhatsApp</a>
+                <a href="mailto:socialcafenepal@gmail.com"><svg class="icon" viewBox="0 0 24 24"><use href="#i-mail"></use></svg> socialcafenepal@gmail.com</a>
             </div>
-
-            <div class="box">
-                <h3>social info</h3>
-                <a href="https://www.facebook.com/thesocialcafe" target="_blank"><i class="fab fa-facebook-f"></i> facebook</a>
-                <a href="https://www.instagram.com/socialcafe_offlinehub" target="_blank"><i class="fab fa-instagram"></i> instagram</a>
-                <!-- <a href="#"><i class="fab fa-linkedin"></i> linkedin</a> -->
+            <div class="site-footer__col">
+                <h3>Social</h3>
+                <a href="https://www.facebook.com/thesocialcafe" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><use href="#i-fb"></use></svg> Facebook</a>
+                <a href="https://www.instagram.com/socialcafe_offlinehub" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><use href="#i-ig"></use></svg> Instagram</a>
+            </div>
+            <div class="site-footer__col">
+                <h3>Visit</h3>
+                <a href="https://www.google.com/maps/place/Social+Cafe+-+Connecting+the+Dots/@26.6647103,87.2738198,872m/data=!3m1!1e3!4m8!3m7!1s0x39ef6d716bd5e67d:0x90d4f93807860043!8m2!3d26.6647103!4d87.2763947!9m1!1b1!16s%2Fg%2F11xykl2djt" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><use href="#i-pin"></use></svg> Itahari, Sunsari, Nepal</a>
             </div>
         </div>
 
-        <div class="credit">created by <span>Redmen Ishab with ❤️</span> | all rights reserved</div>
-    </section>
+        <div class="site-footer__credit">
+            <span>© <span id="year">2026</span> Social Cafe</span>
+            <span>Created by <em>Redmen Ishab</em> <i>·</i> <a href="https://lyante.art" target="_blank" rel="noopener"><em>Lyante Production</em></a></span>
+        </div>
+    </footer>
 
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- SWIPER -->
-    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-
-    <!-- Custom JS File Link  -->
-    <script src="js/script.js"></script>
+    <script src="js/thread.js" defer></script>
+    <script src="js/script.js" defer></script>
 
 </body>
 
